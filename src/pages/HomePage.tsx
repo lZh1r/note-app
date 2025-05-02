@@ -14,7 +14,7 @@ function HomePage() {
             </header>
             <main className="grid grid-cols-5 p-5">
                 {notes.map((note, index) => <NoteCard key={index} title={note.title} text={note.content}
-                                                      path={`/${note.id}`} id={note.id}/>)}
+                                                      path={`/note/${note.id}`} id={note.id}/>)}
                 <NoteCreationButton/>
             </main>
         </>
