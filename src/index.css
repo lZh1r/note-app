@@ -8,6 +8,7 @@ html {
 }
 
 @theme {
+    --shadow-fade: inset 0 -10px 20px 0 black;
     --font-main: "Inter", "sans";
     --color-back: #000908;
     --color-active: #D6E2E0;

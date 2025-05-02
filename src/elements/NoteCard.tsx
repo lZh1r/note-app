@@ -24,7 +24,7 @@ function NoteCard({title, text, path, id}: {title: string, text: string, path: s
                     <FontAwesomeIcon className="text-2xl place-self-center mr-1" icon={faEllipsisVertical} />
                 </div>
                 <Link to={path}>
-                    <p className="h-[10em] p-2">{text}</p>
+                    <p className="h-[10em] p-2 overflow-clip shadow-fade shadow-element">{text}</p>
                 </Link>
             </div>
 
