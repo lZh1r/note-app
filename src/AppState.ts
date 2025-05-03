@@ -13,7 +13,7 @@ type AppState = {
 
 type AppStateActions = {
     createNote: () => void
-    deleteNote: (index: string) => void
+    deleteNote: (id: string) => void
     changeNoteTitle: (id: string, newTitle: string) => void
     changeNoteContent: (id: string, newContent: string) => void
 }
@@ -23,7 +23,7 @@ export const useStore = create<AppState & AppStateActions>((set) => ({
     createNote: () => set((state) => ({notes: [...state.notes, {
         id: crypto.randomUUID(), title: "New Note", content: "", createdAt: new Date()}
         ]})),
-    deleteNote: (index) => set((state) => ({notes: state.notes.filter((note) => note.id !== index)})),
+    deleteNote: (id) => set((state) => ({notes: state.notes.filter((note) => note.id !== id)})),
     //TODO: redo this not to recreate an array every time a name changes
     changeNoteTitle: (id, newTitle) => set((state) => ({notes: state.notes.map((note) =>
         note.id === id ? {id: id, title: newTitle, content: note.content, createdAt: note.createdAt} : note)})),

@@ -5,7 +5,7 @@ import {useStore} from "../AppState.ts";
 
 function HomePage() {
 
-    const notes = useStore().notes;
+    const notes = useStore((state) => state.notes);
 
     return (
         <>
@@ -13,7 +13,7 @@ function HomePage() {
                 <h1 className="text-4xl text-center font-main text-active p-4">Note Taking App</h1>
             </header>
             <main className="grid grid-cols-5 p-5">
-                {notes.map((note, index) => <NoteCard key={index} title={note.title} text={note.content}
+                {notes.map((note) => <NoteCard key={note.id} title={note.title} text={note.content}
                                                       path={`/note/${note.id}`} id={note.id}/>)}
                 <NoteCreationButton/>
             </main>

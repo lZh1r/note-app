@@ -7,7 +7,9 @@ import {useStore} from "../AppState.ts";
 function NoteCard({title, text, path, id}: {title: string, text: string, path: string, id: string}) {
 
     const [noteTitle, setNoteTitle] = useState(title);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const changeNoteTitle = useStore.getState().changeNoteTitle;
+    const deleteNote = useStore.getState().deleteNote;
 
     function updateTitle() {
         changeNoteTitle(id, noteTitle);
@@ -15,17 +17,29 @@ function NoteCard({title, text, path, id}: {title: string, text: string, path: s
 
     return (
 
-            <div className="font-main bg-element border-inactive border-2 border-solid rounded-2xl text-inactive
-        hover:text-active hover:border-active p-3 m-3 transition-all cursor-pointer">
+            <div className="font-main bg-element border-inactive border-2 border-solid rounded-2xl text-inactive hover:text-active
+                hover:border-active p-3 m-3 transition-all">
                 <div className="flex flex-row justify-between">
                     <input onBlur={updateTitle} type="text" onChange={(e) => setNoteTitle(e.currentTarget.value)}
                            value={noteTitle}
-                           className="text-2xl cursor-text focus:outline-0 focus:text-active border-active focus:border-b-2 w-2xs"/>
-                    <FontAwesomeIcon className="text-2xl place-self-center mr-1" icon={faEllipsisVertical} />
+                           className="text-2xl cursor-text focus:outline-0 focus:text-active border-active focus:border-b-2 w-[10rem]"/>
+                    <button onClick={() => setIsMenuOpen(s => !s)} className="cursor-pointer outline-none pr-2 pl-2">
+                        <FontAwesomeIcon className="text-2xl place-self-center mr-1" icon={faEllipsisVertical} />
+                    </button>
+
                 </div>
-                <Link to={path}>
-                    <p className="h-[10em] p-2 overflow-clip shadow-fade shadow-element">{text}</p>
-                </Link>
+                {
+                    isMenuOpen ?
+                        <div className="h-[8em] text-xl flex p-1 flex-col text-inactive">
+                            <button onClick={() => deleteNote(id)} className="cursor-pointer outline-none hover:text-active w-fit p-1">Delete</button>
+                            <button className="cursor-pointer outline-none hover:text-active w-fit p-1">Foo</button>
+                            <button className="cursor-pointer outline-none hover:text-active w-fit p-1">Bar</button>
+                        </div> :
+                        <Link to={path}>
+                            <p className="h-[10em] p-2 overflow-clip shadow-fade shadow-element">{text}</p>
+                        </Link>
+                }
+
             </div>
 
 
