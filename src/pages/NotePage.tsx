@@ -1,5 +1,5 @@
 import {Note, useStore} from "../AppState.ts";
-import {useParams} from "react-router";
+import {Link, useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {faFloppyDisk} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -35,13 +35,18 @@ function NotePage() {
     return (
         <>
             <div className="text-active font-main pl-5 pr-5">
-                <header className="flex justify-center transition-all">
-                    <h1 className="text-center text-4xl p-4">{noteTitle}</h1>
-                    {saveButtonEnabled &&
-                        <button onClick={saveText} className="outline-0 cursor-pointer">
-                            <FontAwesomeIcon className="text-4xl place-self-center" icon={faFloppyDisk} />
-                        </button>
-                    }
+                <header className="transition-all">
+                    <Link className="cursor-pointer place-self-center text-3xl float-left" to="/">
+                        <h1 className="p-4">Logo</h1>
+                    </Link>
+                    <div className="flex justify-center">
+                        <h1 className="text-center text-4xl p-4">{noteTitle}</h1>
+                        {saveButtonEnabled &&
+                            <button onClick={saveText} className="outline-0 cursor-pointer">
+                                <FontAwesomeIcon className="text-4xl place-self-center" icon={faFloppyDisk} />
+                            </button>
+                        }
+                    </div>
                 </header>
                 <textarea className="text-xl p-5 focus:outline-0 resize-none w-[100%] rounded-2xl bg-element h-[90vh]
                     [&::-webkit-scrollbar]:w-3
