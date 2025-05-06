@@ -1,7 +1,7 @@
 import {Note, useStore} from "../utils/AppState.ts";
 import {Link, useParams} from "react-router";
 import {useEffect, useState} from "react";
-import {faFloppyDisk} from "@fortawesome/free-solid-svg-icons";
+import {faBackward, faFloppyDisk} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function NotePage() {
@@ -36,14 +36,14 @@ function NotePage() {
         <>
             <div className="text-active font-main pl-5 pr-5">
                 <header className="transition-all">
-                    <Link className="cursor-pointer place-self-center text-3xl float-left" to="/">
-                        <h1 className="p-4">Logo</h1>
+                    <Link className="cursor-pointer place-self-center text-4xl float-left max-sm:text-3xl" to="/">
+                        <FontAwesomeIcon className="sm:p-4 pt-4" icon={faBackward} />
                     </Link>
                     <div className="flex justify-center">
-                        <h1 className="text-center text-4xl p-4">{noteTitle}</h1>
+                        <h1 className="text-center text-4xl max-sm:text-3xl p-4">{noteTitle}</h1>
                         {saveButtonEnabled &&
                             <button onClick={saveText} className="outline-0 cursor-pointer">
-                                <FontAwesomeIcon className="text-4xl place-self-center" icon={faFloppyDisk} />
+                                <FontAwesomeIcon className="text-4xl max-sm:text-3xl place-self-center" icon={faFloppyDisk} />
                             </button>
                         }
                     </div>

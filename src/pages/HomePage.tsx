@@ -18,7 +18,7 @@ function HomePage() {
             <header>
                 <h1 className="text-4xl text-center font-main text-active p-4">Note Taking App</h1>
             </header>
-            <main className="grid grid-cols-5 p-5">
+            <main className="grid grid-cols-5 p-5 max-md:flex flex-col">
                 {notes.map((note) => <NoteCard key={note.id} title={note.title} text={note.content}
                                                       path={`/note/${note.id}`} id={note.id}/>)}
                 <NoteCreationButton/>

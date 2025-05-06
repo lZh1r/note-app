@@ -16,7 +16,6 @@ function NoteCard({title, text, path, id}: {title: string, text: string, path: s
     }
 
     return (
-
             <div className="font-main bg-element border-inactive border-2 border-solid rounded-2xl text-inactive hover:text-active
                 hover:border-active p-3 m-3 transition-all">
                 <div className="flex flex-row justify-between">
@@ -26,7 +25,6 @@ function NoteCard({title, text, path, id}: {title: string, text: string, path: s
                     <button onClick={() => setIsMenuOpen(s => !s)} className="cursor-pointer outline-none pr-2 pl-2">
                         <FontAwesomeIcon className="text-2xl place-self-center mr-1" icon={faEllipsisVertical} />
                     </button>
-
                 </div>
                 {
                     isMenuOpen ?
@@ -39,10 +37,7 @@ function NoteCard({title, text, path, id}: {title: string, text: string, path: s
                             <p className="h-[10em] p-2 overflow-clip shadow-fade shadow-element">{text}</p>
                         </Link>
                 }
-
             </div>
-
-
     );
 }
 
