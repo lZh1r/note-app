@@ -1,11 +1,17 @@
 import NoteCard from "../elements/NoteCard.tsx";
 import NoteCreationButton from "../elements/NoteCreationButton.tsx";
-import {useStore} from "../AppState.ts";
+import {useStore} from "../utils/AppState.ts";
+import {useEffect} from "react";
 
 
 function HomePage() {
 
     const notes = useStore((state) => state.notes);
+    const getSavedNotes = useStore((s) => s.getNotesFromDB);
+
+    useEffect(() => {
+        getSavedNotes();
+    }, []);
 
     return (
         <>

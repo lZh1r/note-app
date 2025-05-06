@@ -1,6 +1,6 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
-import {useStore} from "../AppState.ts";
+import {useStore} from "../utils/AppState.ts";
 
 function NoteCreationButton() {
 

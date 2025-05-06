@@ -2,7 +2,7 @@ import {Link} from "react-router";
 import {faEllipsisVertical} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useState} from "react";
-import {useStore} from "../AppState.ts";
+import {useStore} from "../utils/AppState.ts";
 
 function NoteCard({title, text, path, id}: {title: string, text: string, path: string, id: string}) {
 

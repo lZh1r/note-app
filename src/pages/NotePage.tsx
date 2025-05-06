@@ -1,4 +1,4 @@
-import {Note, useStore} from "../AppState.ts";
+import {Note, useStore} from "../utils/AppState.ts";
 import {Link, useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {faFloppyDisk} from "@fortawesome/free-solid-svg-icons";
